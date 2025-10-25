@@ -1,0 +1,81 @@
+// src/App.jsx
+import React, { Suspense } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import { useProfileStore } from "./context/storeProfile";
+
+// Páginas públicas
+import Home from "./pages/Home";
+import Header from "./pages/Header";
+import Footer from "./pages/Footer";
+import LoginModal from "./pages/LoginModal";
+import RegistroModal from "./pages/RegistroModal";
+import ConfirmacionCorreo from "./pages/ConfirmacionCorreo";
+
+// Dashboards privados con lazy loading
+const AdminModule = React.lazy(() => import("./layout/admin/AdminModule"));
+const ClienteModulo = React.lazy(() => import("./layout/client/ClienteModulo"));
+
+// Rutas protegidas
+import PrivateRoute from "./components/auth/PrivateRoute";
+
+// Componente de carga para Suspense
+const LoadingFallback = () => <div className="flex justify-center items-center h-screen">Cargando...</div>;
+
+// LandingPage con props para mostrar el login modal
+const LandingPage = ({ showLoginModal = false }) => {
+  const [isLoginOpen, setIsLoginOpen] = React.useState(showLoginModal);
+
+  const handleLoginOpen = () => setIsLoginOpen(true);
+  const handleLoginClose = () => setIsLoginOpen(false);
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header onLogin={handleLoginOpen} />
+      <main className="flex-1">
+        <Home />
+      </main>
+      <Footer />
+      {isLoginOpen && <LoginModal isOpen={isLoginOpen} onClose={handleLoginClose} />}
+    </div>
+  );
+};
+// Inicializar storeProfile desde localStorage al cargar la app
+
+const profile = JSON.parse(localStorage.getItem("profile") || "null");
+if (profile) {
+  useProfileStore.getState().setUser(profile);
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Suspense fallback={<LoadingFallback />}>
+        <Routes>
+          {/* Rutas públicas */}
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/login" element={<LandingPage showLoginModal={true} />} />
+          <Route path="/register" element={<RegistroModal isOpen={true} onClose={() => {}} />} />
+          <Route path="/confirm/:token" element={<ConfirmacionCorreo />} />
+
+          {/* Dashboard Admin protegido por rol */}
+          <Route element={<PrivateRoute allowedRoles={["administrador"]} />}>
+            <Route path="/admin/*" element={<AdminModule />} />
+          </Route>
+
+          {/* Dashboard Cliente protegido por rol */}
+          <Route element={<PrivateRoute allowedRoles={["cliente"]} />}>
+            <Route path="/cliente/*" element={<ClienteModulo />} />
+          </Route>
+
+          {/* Redirigir rutas no encontradas */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Suspense>
+
+      <ToastContainer />
+    </BrowserRouter>
+  );
+}
+
+export default App; 

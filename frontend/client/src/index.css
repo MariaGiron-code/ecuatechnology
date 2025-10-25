@@ -1,0 +1,77 @@
+/* Fuentes e íconos */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@700&family=Open+Sans&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  font-family: 'Open Sans',system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Variables globales */
+  --primary: #D4AF37;
+  --secondary: #3B5998;
+  --accent: #DC3545;
+  --neutral: #333333;
+  --background: #FFFFFF;
+  --peach-light: #FFF5E6;
+  --color-primary: #D4AF37;
+  --color-secondary: #3B5998;
+  --color-accent: #DC3545;
+  --color-neutral: #333333;
+  --color-background: #FFFFFF;
+  --color-peach-light: #FFF5E6;
+
+  --font-family-heading: "Work Sans", sans-serif;
+  --font-family-body: "Open Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  /* Tipografía global */
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 700;
+}
+
+/* Estilos de los contenedores */
+.container {
+  margin: 0 auto;
+  padding: auto 1.5rem; /* Ajuste el padding para espacio en los bordes */
+  max-width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+@media (max-width: 638px) {
+  .container {
+    padding: 0 1rem; /* Padding para dispositivos móviles */
+  }
+
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-list {
+    width: 100%;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+}
