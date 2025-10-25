@@ -1,6 +1,11 @@
 // frontend/client/src/hooks/useTicketOperations.jsx
 import { useState } from "react";
 
+// Función helper para obtener la URL base
+const getBaseUrl = () => {
+  return import.meta.env.VITE_URL_BACK || "http://localhost:4000";
+};
+
 /**
  * Hook unificado con todas las operaciones de tickets
  * Contiene las 3 operaciones principales: diagnóstico, proforma y actualización de estado
@@ -24,6 +29,9 @@ const useTicketOperations = () => {
   const getToken = () => {
     return localStorage.getItem("token");
   };
+
+  // Obtener URL base
+  const BASE_URL = getBaseUrl();
 
   // 1. Agregar diagnóstico a un ticket
   const updateDiagnosis = async (ticketId, diagnostico) => {

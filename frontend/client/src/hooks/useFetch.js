@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useCallback, useRef } from "react";
 
-const WEB_URL = import.meta.env.VITE_URL_BACK.endsWith("/")
-  ? import.meta.env.VITE_URL_BACK
-  : import.meta.env.VITE_URL_BACK + "/";
+// Función helper para obtener la URL base
+const getBaseUrl = (envVar, defaultValue) => {
+  const url = import.meta.env[envVar] || defaultValue;
+  return url.endsWith("/") ? url : url + "/";
+};
 
-const DESK_URL = import.meta.env.VITE_API_DESK.endsWith("/")
-  ? import.meta.env.VITE_API_DESK
-  : import.meta.env.VITE_API_DESK + "/";
+const WEB_URL = getBaseUrl("VITE_URL_BACK", "http://localhost:4000/");
+const DESK_URL = getBaseUrl("VITE_API_DESK", "http://localhost:4000/");
 
 // Cache configuration
 const CACHE_EXPIRY = 5 * 60 * 1000; // 5 minutes in milliseconds
