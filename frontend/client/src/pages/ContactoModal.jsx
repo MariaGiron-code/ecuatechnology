@@ -20,7 +20,7 @@ const ContactoModal = ({ isOpen, onClose }) => {
           {/* Ubicación con Mapa */}
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-              <MapPin size={18} md:size={20} className="text-primary" />
+              <MapPin size={20} className="text-primary" />
             </div>
             <div className="flex-1">
               <h3 className="font-semibold text-sm md:text-base text-neutral mb-1">Ubicación</h3>
@@ -44,7 +44,7 @@ const ContactoModal = ({ isOpen, onClose }) => {
           {/* Email */}
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-              <Mail size={18} md:size={20} className="text-primary" />
+              <Mail size={20} className="text-primary" />
             </div>
             <div>
               <h3 className="font-semibold text-sm md:text-base text-neutral mb-1">Email</h3>
@@ -55,7 +55,7 @@ const ContactoModal = ({ isOpen, onClose }) => {
           {/* Horarios */}
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-              <Clock size={18} md:size={20} className="text-primary" />
+              <Clock size={20} className="text-primary" />
             </div>
             <div>
               <h3 className="font-semibold text-sm md:text-base text-neutral mb-1">Horarios de Atención</h3>
