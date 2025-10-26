@@ -7,8 +7,8 @@ const getBaseUrl = (envVar, defaultValue) => {
   return url.endsWith("/") ? url : url + "/";
 };
 
-const WEB_URL = getBaseUrl("VITE_URL_BACK", "http://localhost:4000/");
-const DESK_URL = getBaseUrl("VITE_API_DESK", "http://localhost:4000/");
+const WEB_URL = getBaseUrl("VITE_URL_BACK", "https://ecuatechnology.onrender.com/");
+const DESK_URL = getBaseUrl("VITE_API_DESK", "https://ecuatechnology.onrender.com/");
 
 // Cache configuration
 const CACHE_EXPIRY = 5 * 60 * 1000; // 5 minutes in milliseconds
