@@ -7,8 +7,8 @@ const getBaseUrl = (envVar, defaultValue) => {
   return url.endsWith("/") ? url : url + "/";
 };
 
-const WEB_URL = getBaseUrl("VITE_URL_BACK", "https://ecuatechnology.onrender.com/");
-const DESK_URL = getBaseUrl("VITE_API_DESK", "https://ecuatechnology.onrender.com/");
+const WEB_URL = getBaseUrl("VITE_URL_BACK", "https://abcd1234.ngrok.io/");
+const DESK_URL = getBaseUrl("VITE_API_DESK", "https://abcd1234.ngrok.io/");
 
 // Cache configuration
 const CACHE_EXPIRY = 5 * 60 * 1000; // 5 minutes in milliseconds

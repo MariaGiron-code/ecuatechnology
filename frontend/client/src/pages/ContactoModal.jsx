@@ -16,7 +16,7 @@ const ContactoModal = ({ isOpen, onClose }) => {
         <h2 className="text-xl md:text-2xl font-bold text-center text-primary mb-2">Ubicanos</h2>
         <p className="text-center text-gray-600 mb-4 md:mb-6 text-sm md:text-base">Información de nuestras instalaciones y horarios de atención al cliente</p>
 
-        <div className="space-y-4 md:space-y-6">
+        <div className="space-y-4 md:space-y-6">34aH33M2uKiGgDytgn62Xvdh5JF_25gywW6ycBZdFjgB6h5Qn
           {/* Ubicación con Mapa */}
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
