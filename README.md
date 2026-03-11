@@ -218,8 +218,9 @@ El frontend está desplegado en **Vercel** y se puede acceder en:
 - Variables de entorno: `VITE_URL_BACK`, `VITE_API_DESK`
 
 ### Backend
-El backend debe desplegarse en un servidor separado (ej: Heroku, Railway, VPS).
-Requiere configuración de base de datos SQL Server en producción.
+El server está desplegado en **Render** y se puede acceder en:
+https://ecuatechnology.onrender.com
+Esperar que el server ejecute la app ya que esta se encuentra en modo invernación.
 
 ### Guías de Desarrollo
 - Sigue las reglas de ESLint y Stylelint
@@ -241,3 +242,4 @@ Para soporte técnico o preguntas:
 
 **Última actualización:** Noviembre 2025
 **Versión:** 1.0.0
+
